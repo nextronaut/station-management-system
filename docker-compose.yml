@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: station_mng
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - PORT=${PORT}
+      - TYPE=${TYPE}
+      - HOST=${HOST}
+      - DB_PORT=${DB_PORT}
+      - USERNAME=${USERNAME}
+      - PASSWORD=${PASSWORD}
+      - DATABASE=${DATABASE}
+      - DATABASE_URL=${DATABASE_URL}
+    ports:
+      - '${PORT}:${PORT}'
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
